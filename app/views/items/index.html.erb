@@ -1,6 +1,7 @@
 <% if user_signed_in? %>
   <div class="col-md-6 col-md-offset-3">
-    <%= link_to("Export CSV", items_path(format: :csv), class: "btn btn-success") %>
+    <%= link_to("Export to CSV", items_path(format: :csv), class: "btn btn-info") %>
+    <%= link_to("Export to PDF", items_path(@items, format: :pdf), class: "btn btn-info") %>
 		<% @item.each do |item| %>
 			<div class="index-wrapper">
 				<% if item.completed? %>
