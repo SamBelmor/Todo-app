@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PDF</title>
+  <meta charset="UTF-8">
+  <%= wicked_pdf_stylesheet_link_tag 'pdf' %>
+</head>
+<body>
+  <h1 style="text-align: center;">List of to do tasks</h1>
+  <% @item.each do |item| %>
+    <% if item.completed? %>
+      <h3><strike><%= item.title %></strike></h3>
+      <p><%= item.description %></p>
+    <% else %>
+      <h3><%= item.title %></h3>
+      <p><%= item.description %></p>
+    <% end %>
+  <% end %>
+</body>
+</html>
