@@ -7,6 +7,10 @@ class ItemsController < ApplicationController
       respond_to do |format|
         format.html
         format.csv { send_data @item.to_csv }
+        format.pdf do 
+          render template: 'items/export_pdf',
+          pdf: 'export_pdf'
+        end
       end
     end
   end
