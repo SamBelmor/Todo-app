@@ -1,5 +1,5 @@
 <%= simple_form_for @item do |f| %>
-  <%= f.input :title, label: "Task" %>
-  <%= f.input :description %>
+  <%= f.input :title, label: "Task", required: true %>
+  <%= f.input :description, required: true %>
   <%= f.button :submit, "Create task", class: "btn btn-info" %>
 <% end %>
