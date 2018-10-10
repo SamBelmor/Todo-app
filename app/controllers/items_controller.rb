@@ -36,7 +36,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to item_path(@item)
+      redirect_to root_path(@item)
     else
       render 'edit'
     end
@@ -50,7 +50,7 @@ class ItemsController < ApplicationController
   def complete
     @item = Item.find(params[:id])
     @item.update_attribute(:completed_at, Time.now)
-    redirect_to root_path
+    redirect_to root_path, notice: "Task successfully completed!"
   end
 
   private
