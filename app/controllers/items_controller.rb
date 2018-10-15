@@ -30,8 +30,8 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      reder 'new'
-    end  
+      render 'new'
+    end
   end
 
   def update

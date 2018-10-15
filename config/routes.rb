@@ -1,3 +1,5 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
   devise_for :users
   resources :items do
@@ -6,4 +8,5 @@ Rails.application.routes.draw do
     end
   end
   root 'items#index'
+  mount Sidekiq::Web => '/sidekiq'
 end
