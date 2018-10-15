@@ -1,12 +1,12 @@
 class UserMailer < ApplicationMailer
   default from: 'from@example.com'
 
-  # CONTACT_EMAIL = 'from@example.com'
+  CONTACT_EMAIL = 'from@example.com'
 
   def email_notification(user)
     @user = user
     @url = 'http://localhost:3000'
-    mail(to: @user.email, subject: 'tasts to do') do |format|
+    mail(to: @user.email, subject: 'tasks to do') do |format|
       format.html
       format.text
     end

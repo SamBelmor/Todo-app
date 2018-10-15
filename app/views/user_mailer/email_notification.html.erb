@@ -5,5 +5,11 @@
   </head>
   <body>
     <h1>Hello world</h1>
+    <% @user.items.pending.each do |item| %>
+      <h1>This are your pending tasks</h1>
+      <h2><%= item.title %></h2>
+      <p><%= item.description %>
+      <% byebug %>
+    <% end %> 
   </body>
 </html>

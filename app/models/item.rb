@@ -1,6 +1,10 @@
 class Item < ApplicationRecord
   belongs_to :user
 
+  scope :pending, -> {
+    where(completed_at: nil)
+  }
+
   def completed?
     !completed_at.blank?
   end
