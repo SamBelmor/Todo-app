@@ -8,7 +8,6 @@ class UserMailer < ApplicationMailer
     @url = 'http://localhost:3000'
     mail(to: @user.email, subject: 'tasks to do') do |format|
       format.html
-      format.text
     end
   end
 
