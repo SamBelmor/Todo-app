@@ -1,6 +1,10 @@
 #  Todo-App
 
-This application can CRUD tasks on a list, user can export their tasks to CSV and PDF files.
+1. This application can CRUD tasks on a list
+2. user can export their tasks to CSV and PDF files.
+3. User can edit his profile
+4. User received an welcome email when register
+5. User received an email every week with pending tasks
 
 # Setup Todo-App
 
