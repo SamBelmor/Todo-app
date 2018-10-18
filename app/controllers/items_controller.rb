@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
       @item = Item.where(:user_id => current_user.id).order("created_at DESC")
       respond_to do |format|
         format.html
-        format.csv { send_data @item.to_csv }
+        format.csv { send_data Item.to_csv(@item) }
         format.pdf do 
           render template: 'items/export_pdf',
           pdf: 'export_pdf'
