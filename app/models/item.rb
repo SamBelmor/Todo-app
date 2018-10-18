@@ -9,10 +9,10 @@ class Item < ApplicationRecord
     !completed_at.blank?
   end
 
-  def self.to_csv
+  def self.to_csv(items)
     CSV.generate do |csv|
       csv << column_names
-      all.each do |result|
+      items.each do |result|
         csv << result.attributes.values_at(*column_names)
       end
     end
