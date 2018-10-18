@@ -1,12 +1,10 @@
 require "rails_helper"
 
-RSpec.describe FirstWorker, :type => :workers do
-  # context "with 2 or more comments" do
-  #   it "orders them in reverse chronologically" do
-  #     post = Post.create!
-  #     comment1 = post.comments.create!(:body => "first comment")
-  #     comment2 = post.comments.create!(:body => "second comment")
-  #     expect(post.reload.comments).to eq([comment2, comment1])
-  #   end
-  # end
+RSpec.describe FirstWorker, type: :workers do
+  let(:user) { User.create!(email: '2@hotmail.com', name: 'Sam', password: 'test1234') }
+  let(:user2) { User.create!(email: 'test@hotmail.com', name: 'Pedro', password: 'test1234') }
+
+  it 'when it send weekly email with pending tasks' do
+    expect{user; user2;}.to change{ActionMailer::Base.deliveries.count}.by(2)
+  end
 end

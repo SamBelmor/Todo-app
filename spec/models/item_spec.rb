@@ -1,12 +1,14 @@
 require "rails_helper"
 
-RSpec.describe Item, :type => :models do
-  # context "with 2 or more comments" do
-  #   it "orders them in reverse chronologically" do
-  #     post = Post.create!
-  #     comment1 = post.comments.create!(:body => "first comment")
-  #     comment2 = post.comments.create!(:body => "second comment")
-  #     expect(post.reload.comments).to eq([comment2, comment1])
-  #   end
-  # end
+RSpec.describe Item, type: :models do
+  let(:item) { Item.new(description: 'hello world') }
+
+  it '#completed?' do
+    expect(item.completed?).to be_falsey
+  end
+
+  it 'generate CSV' do
+    csv_string = Item.to_csv([item])
+    expect(csv_string).to include 'hello world'
+  end
 end

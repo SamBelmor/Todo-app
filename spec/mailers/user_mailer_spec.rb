@@ -1,12 +1,24 @@
 require "rails_helper"
 
-RSpec.describe UserMailer, :type => :mailers do
-  # context "with 2 or more comments" do
-  #   it "orders them in reverse chronologically" do
-  #     post = Post.create!
-  #     comment1 = post.comments.create!(:body => "first comment")
-  #     comment2 = post.comments.create!(:body => "second comment")
-  #     expect(post.reload.comments).to eq([comment2, comment1])
-  #   end
-  # end
+RSpec.describe UserMailer, type: :mailers do
+  let(:user) { User.create!(email: '2@hotmail.com', name: 'Sam', password: 'test1234') }
+  let(:mail) { UserMailer.email_notification(user).deliver }
+  
+  it '#email_notificacion' do
+    expect(ActionMailer::Base.deliveries.include?(mail)).to be_truthy
+  end
+
+  describe "when it send user welcome email" do
+    it 'renders the subject' do
+      expect(mail.subject).to eq ('Tasks to do')
+    end
+
+    it 'renders the receiver email' do
+      expect(mail.to).to eq ([user.email])
+    end
+
+    it 'renders the sender email' do
+      expect(mail.from).to eq(["from@example.com"])
+    end
+  end
 end
