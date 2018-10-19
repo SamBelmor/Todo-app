@@ -10,7 +10,7 @@ RSpec.describe UserMailer, type: :mailers do
 
   describe "when it send user welcome email" do
     it 'renders the subject' do
-      expect(mail.subject).to eq ('Tasks to do')
+      expect(mail.subject).to eq ('tasks to do')
     end
 
     it 'renders the receiver email' do
