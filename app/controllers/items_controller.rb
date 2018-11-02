@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   def index
     if user_signed_in?
       @item = Item.where(:user_id => current_user.id).order("created_at DESC")
+      byebug
       respond_to do |format|
         format.html
         format.csv { send_data Item.to_csv(@item) }
@@ -15,15 +16,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @item = current_user.items.build
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @item = current_user.items.build(item_params)

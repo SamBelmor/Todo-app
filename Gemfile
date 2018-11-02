@@ -18,6 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis-rails'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
+# te permite ver cuando los correos se están enviando
 gem "letter_opener", :group => :development
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
